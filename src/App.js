@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Admin, Resource } from 'react-admin';
+import restProvider from 'ra-data-simple-rest';
+
+import { createMuiTheme } from '@material-ui/core/styles';
+import themeObj from './Constants/theme';
+
+import { WishList, WishCreate, WishEdit, WishIcon } from './Components/Wishes';
+import { ContactList, ContactCreate, ContactEdit, ContactIcon } from './Components/Contacts';
+
+const theme = createMuiTheme(themeObj);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Admin theme={theme} dataProvider={restProvider('http://localhost:3000')}>
+			<Resource name='wishes' list={WishList} create={WishCreate} edit={WishEdit} icon={WishIcon} />
+			<Resource name='contacts' list={ContactList} create={ContactCreate} edit={ContactEdit} icon={ContactIcon} />
+		</Admin>
+	);
 }
 
 export default App;

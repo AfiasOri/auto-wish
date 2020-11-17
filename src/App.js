@@ -7,14 +7,18 @@ import themeObj from './Constants/theme';
 
 import { WishList, WishCreate, WishEdit, WishIcon } from './Components/Wishes';
 import { ContactList, ContactCreate, ContactEdit, ContactIcon } from './Components/Contacts';
+import { LogList, ListIcon } from './Components/Logs';
+
+import baseURL from './Constants/baseURL';
 
 const theme = createMuiTheme(themeObj);
 
 function App() {
 	return (
-		<Admin theme={theme} dataProvider={restProvider('http://localhost:3000')}>
+		<Admin theme={theme} dataProvider={restProvider(baseURL)}>
 			<Resource name='wishes' list={WishList} create={WishCreate} edit={WishEdit} icon={WishIcon} />
 			<Resource name='contacts' list={ContactList} create={ContactCreate} edit={ContactEdit} icon={ContactIcon} />
+			<Resource name='logs' list={LogList} icon={ListIcon} />
 		</Admin>
 	);
 }

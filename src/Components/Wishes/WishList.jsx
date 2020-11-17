@@ -2,9 +2,8 @@ import React from 'react';
 import { List, Datagrid as DataGrid, TextField, EditButton, DeleteButton } from 'react-admin';
 
 const WishList = props => (
-	<List {...props}>
+	<List {...props} bulkActionButtons={false}>
 		<DataGrid>
-			<TextField source='id' />
 			<TextField source='gender' />
 			<TextField source='body' />
 			<EditButton basePath='/wishes' />

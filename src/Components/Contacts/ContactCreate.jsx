@@ -1,5 +1,5 @@
 import React from 'react';
-import { Create, SimpleForm, TextInput, AutocompleteInput } from 'react-admin';
+import { Create, SimpleForm, TextInput, AutocompleteInput, NumberInput } from 'react-admin';
 
 const ContactCreate = props => (
 	<Create title='Add Contact' {...props}>
@@ -12,9 +12,9 @@ const ContactCreate = props => (
 				]}
 			/>
 			<TextInput source='name' lang='he' />
-			<TextInput source='phone' />
-			<TextInput source='month' />
-			<TextInput source='day' />
+			<NumberInput source='phone' />
+			<NumberInput source='month' />
+			<NumberInput source='day' />
 			<TextInput source='myName' />
 		</SimpleForm>
 	</Create>

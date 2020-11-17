@@ -15,7 +15,14 @@ const ContactCreate = props => (
 			<NumberInput source='phone' />
 			<NumberInput source='month' />
 			<NumberInput source='day' />
-			<TextInput source='myName' />
+			{/* <TextInput source='myName' /> */}
+			<AutocompleteInput
+				source='myName'
+				choices={[
+					{ id: 'אורי', name: 'אורי' },
+					{ id: 'אורן', name: 'אורן' },
+				]}
+			/>
 		</SimpleForm>
 	</Create>
 );
